@@ -4,9 +4,10 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
+//Eduardo Antonio Fernandez Diaz
 
 int genRand(int a, int b) {
-	// This function generates a rand number
+	// This function generates a random number
 	// between a and b with range (b - a) + 1
 	int random_integer;
 	int range = (b - a) + 1;
@@ -15,10 +16,10 @@ int genRand(int a, int b) {
 
 int main()
 {
-	int observeTime;
+	int observedTime;
 	cout << "For how many hours do you want to observe the elevator? [1-10](hours): ";
-	cin >> observeTime;
-	if (observeTime < 1 || observeTime>10)
+	cin >> observedTime;
+	if (observedTime < 1 || observedTime>10)
 	{
 		cout << "Enter a valid time range to watch the elevator"<<endl;
 		return 0;
@@ -26,7 +27,7 @@ int main()
 
 	//each hour has 60 minutes and the elevator will move up or down every 5 minutes
 	// (observeTime will hold the number of times the elevator will move)
-	observeTime = observeTime * 60 / 5;
+	observedTime = observedTime * 60 / 5;
 
 	//An array to store floor visits is initialized
 	int floorVisits[25] = { 0 };
@@ -51,8 +52,9 @@ int main()
 	int a = 0, b = 1; 
 	//up or down will take values +1 or -1, explained in previous comment
 	int upOrDown;
-	for (int index = 0; index < observeTime ; index++) {
-		upOrDown = genRand(a, b) * 2 - 1; //  rand(0,1)* 2 - 1 Artifact to simulate a sign function
+
+	for (int index = 0; index < observedTime ; index++) {
+		upOrDown = genRand(a, b) * 2 - 1; //  rand(0,1)* 2 - 1 Artifact to simulate a sign function for our values
 		
 		switch (actualFloor)
 		{
@@ -62,12 +64,15 @@ int main()
 			case 0: actualFloor += 1; floorVisits[actualFloor] += 1; break;
 			default:
 			{
+				//in the default case is ok to add a visit to the floor
 				actualFloor += upOrDown;
 				floorVisits[actualFloor] += 1;
 				break;
 			}
 		}
 	}
+
+	//Finally we print the visits as a bar chart
 	cout << endl<< "Floor" << setw(2) << " Number of visits" << endl;
 	cout  << "-----" << setw(2) << " ----------------" << endl;
 	for (int i = 24; i >-1 ; i--){
