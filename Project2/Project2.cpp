@@ -71,9 +71,9 @@ int main()
 	cout << endl<< "Floor" << setw(2) << " Number of visits" << endl;
 	cout  << "-----" << setw(2) << " ----------------" << endl;
 	for (int i = 24; i >-1 ; i--){
-		cout << setw(4) << i + 1;
+		cout << setw(5) << i + 1;
 		for(int j=0; j < floorVisits[i]; j++)
-		cout << setw(4) << '*' ;
+		cout << setw(2) << '*' ;
 		cout << endl;
 	}
 	
